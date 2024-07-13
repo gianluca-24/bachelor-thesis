@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="eu">
+    <head>
+        <link rel = "icon" href = "../iconpng/summercocktail.png" type = "image/x-icon"> 
+        <meta charset="utf-8">
+        <title>Let's Party Future Project</title>
+        <script src="../../javascript/post_handler.js"></script>
+        <script src="../javascript/listeners.js"></script>
+        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body style="background-size: cover;">
+        <div id="wrapper">
+                <div>
+                    <center><img src="iconpng/officiaLogo.png" id="logos"></center>
+                </div>
+            <nav id="nav">
+                <ul class="links">
+                    <li ><a href="/">About Us</a></li>
+                    <li><a href="/users/map">MAP</a></li>
+                <li class="active"><a href="/socialNetwork">SOCIAL NETWORK</a></li>
+                <li ><a href="../FutureProject.html">FUTURE PROJECTS</a></li>
+                <li><a href="../users/login">Login</a></li>
+                <li><a href="../contacts.html">CONTACTS</a></li>
+                <li><a href="../users/profile">PROFILE</a></li>
+                <li><a href="/users/partners">PARTNERS</a></li>
+                </ul>
+            </nav>
+
+            <footer id="footer" style="display: flex; flex-direction: column;">
+                
+                <button id="popup-button">Scrivi un post</button>
+
+                <form method="post" action="/send_post" enctype="multipart/form-data">
+                    
+                    <!-- pop up per scrivere nuovo post -->
+                    <div class="post-popup" id="post-popup" style="display: none;">
+                        <div class="popup-content">
+                            <span class="close" id="close-popup">&times;</span>
+                            <textarea name="posttext" id="popup-textarea" placeholder="What's on your mind?" required></textarea>
+                            <label for="image-input-button" class="btn btn-light" id="image-input-label">Add Image</label>
+                            <input type="file" name="postImage" accept="image" id="image-input-button" style="visibility: hidden;"/>
+                            <input type="submit" value="Send post" />
+                        </div>
+                    </div>
+
+                </form>
+                
+
+                <div class="post-container" id="post-container">
+                    <!-- riempito da post_handler.js -->
+                </div>
+            </footer>
+
+            <div id="copyright">
+                        <ul>
+                          <li>&copy; Copyright 2023 </li>
+                          <li>Design: <a href="https://www.instagram.com/francescotinessa_/" target="_blank"> Francesco Tinessa </a></li>
+                        </ul>
+                    </div>
+            <!-- Scripts -->
+			<script src="../javascript/jquery.min.js"></script>
+			<script src="../javascript/jquery.scrollex.min.js"></script>
+			<script src="../javascript/jquery.scrolly.min.js"></script>
+			<script src="../javascript/browser.min.js"></script>
+			<script src="../javascript/breakpoints.min.js"></script>
+			<script src="../javascript/util.js"></script>
+			<script src="../javascript/main.js"></script>
+            <!-- JS per cambiare la label del bottone di input con il file caricato -->
+            <script>
+                $("#image-input-button").change(function() {
+                    filename = this.files[0].name;
+                    $('#image-input-label').text(filename);
+                });
+            </script>
+        </div>
+    </body>

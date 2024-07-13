@@ -1,0 +1,100 @@
+
+<!DOCTYPE HTML>
+<html>
+	<head lang="eu">
+		<title>Local Page</title>
+		<meta charset="utf-8" />
+		<link rel = "icon" href = "../iconpng/summercocktail.png" type = "image/x-icon"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/css/main.css" />
+		<noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
+	</head>
+	<body> 
+		<!-- Wrapper -->
+			<div id="wrapper">
+				<!-- Intro -->
+					<div id="intro">
+						<h1>Let's Party <br /></h1> <h2>the (re)evolution of nightclub. </h2>
+					</div>
+
+				<!-- Header -->
+					<header id="header">
+						<a href="#" class="logo" >Let's Party</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="/">About Us</a></li>
+							<li><a href="/users/map">MAP</a></li>
+                        <li><a href="../socialNetwork.html">SOCIAL NETWORK</a></li>
+                        <li><a href="../FutureProject.html">FUTURE PROJECTS</a></li>
+						<li><a href="/users/login">LOGIN</a></li>
+                        <li><a href="../contacts.html">CONTACTS</a></li>
+						<li><a href="/users/profile">PROFILE</a></li>
+						</ul>
+					</nav>
+                    
+
+				<!-- Main -->
+					<div id="main">
+						<!-- Featured Post -->
+							<article class="post featured">
+								<header class="major">
+									<h2><a><%= localeTitle %></a></h2>
+                                    <h3><a>Do you want to book your place there? </a></h3>
+                                    <h3><a>You are lucky! There are many tables available 🥳 </a></h3>
+								</header>
+								<a href="#" class="image main"><img src="../iconpng/booknow.png" alt="" width="200px" height="auto"/></a>
+                                <form action="/users/bookEn" method="POST">
+                                    <section class="split contact">
+                                        <div class="field">
+                                            <label for="name" >First Name</label>
+                                            <input type="text" name="name" id="name" required/>
+                                        </div>
+                                        <br />
+                                        <div class="field">
+                                            <label for="surname">Second Name </label>
+                                            <input type="text" name="surname" id="surname" required/>
+                                        </div>
+                                        <br />
+                                        <div class="field">
+                                            <label for="title">Local</label>
+                                            <input type="text" name="title" id="title" value="<%= localeTitle %>" readonly/>
+                                        </div>
+                                        <br />
+                                        <div class="field">
+                                            <label for="table" >Table</label>
+                                            <input type="table" name="table" id="table" required/>
+                                        </div>
+                                        <br />
+                                        <div class="field">
+                                            <label for="entries">Entries </label>
+                                            <input type="entries" name="entries" id="entries" required/>
+                                        </div>
+                                        <br />
+                                        <div id="SignUpCentered">
+                                            <input type="submit" value="BOOK NOW🥳">
+                                        </div>
+                                        <br />
+                                    </section>
+                                </form>
+							</article>
+					</div>
+                    <br />
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Copyright 2023</li><li>Design: <a href="https://www.instagram.com/francescotinessa_/" target="_blank">Francesco Tinessa </a></li></ul>
+					</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="javascript/jquery.min.js"></script>
+			<script src="javascript/jquery.scrollex.min.js"></script>
+			<script src="javascript/jquery.scrolly.min.js"></script>
+			<script src="javascript/browser.min.js"></script>
+			<script src="javascript/breakpoints.min.js"></script>
+			<script src="javascript/util.js"></script>
+			<script src="javascript/main.js"></script>
+	</body>
+</html>

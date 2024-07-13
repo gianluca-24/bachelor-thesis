@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="eu">
+    <head>
+        <meta charset="utf-8">
+        <title>Let's Party Profile</title>
+        <link rel = "icon" href = "../iconpng/summercocktail.png" type = "image/x-icon"> 
+        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    </head>
+    <body style="background-image: url('../photos/overlay.png'), linear-gradient(to bottom,#21293100, #21293127,#21293150,#21293153,#2129317c,#212931b0,#212931af,#212931cb,#212931ee,#212931fd), url('../photos/fiesta3.jpg');background-size: cover;">
+        <script>
+            window.myApp = window.myApp || {};
+              window.myApp.user = '<%=user%>';
+              window.myApp.surname = '<%=su%>';
+        </script>
+        <div id="wrapper">
+            <div>
+                <center><img src="../iconpng/officiaLogo.png" style="height: fit-content;" id="logos" ></center>
+            </div>
+            <nav id="nav">
+                <ul class="links">
+                    <li ><a href="/">About Us</a></li>
+                    <li><a href="/users/map">MAP</a></li>
+                <li><a href="../socialNetwork">SOCIAL NETWORK</a></li>
+                <li><a href="../FutureProject.html">FUTURE PROJECTS</a></li>
+                <li><a href="/users/login">Login</a></li>
+                <li><a href="../contacts.html">CONTACTS</a></li>
+                <li class="active"><a href="/users/profile">PROFILE</a></li>
+                <li><a href="/users/partners">PARTNERS</a></li>
+                </ul>
+            </nav>
+        <br />
+            <footer id="footer" style="background-color: transparent;">
+                <div id="mySideBar" class="sidebar">
+                    <a href="/users/editProfile">EDIT PROFILE</a>
+                    <a href="#" onclick="logOut()">LOGOUT</a>                    
+                    <a href="#" id="showPopup" onclick="handlePopUp()">DELETE PROFILE</a>
+
+                    <script src="../javascript/listeners.js"></script>
+
+                    <script>
+                        let isCreatePopupOpen = false; // Aggiunto stato per il pop-up
+
+                        function toggleCreatePopup() {
+                        const popup = document.getElementById('popup-create-party');
+                        isCreatePopupOpen = !isCreatePopupOpen; // Inverti lo stato
+
+                        if (isCreatePopupOpen) {
+                            popup.style.display = 'block';
+                        } else {
+                            popup.style.display = 'none';
+                        }
+                        }
+                    </script>
+
+                    <div id="popup-container">
+                        <div id="popup">
+                          <p style="font-size: 30px;">Are you sure you want to delete your profile?</p>
+                          <button id="no-button" onclick="handlePopUp()">NO</button>
+                          <button id="delete-button" onclick="deletePopUp()">OK</button>
+                        </div>
+                      </div>
+                </div>
+                <div class="bg-white shadow overflow-hidden w-100">
+                    <div class="px-4 pt-0 bg-white border-bottom">
+                        <br />
+                        <div class="media align-items-center profile-header">
+                            <div class="profile py-4 mr-3 text-center">
+                                <% if (imgSrc) { %>
+                                    <img src="../uploads/<%= imgSrc %>" alt="..." width="130" class="rounded-circle ">
+                                <% } else { %>
+                                    <img src="../iconpng/profile.jpg" alt="..." width="130" class="rounded-circle ">
+                                <% } %>
+                                    <h6 style="margin-top: 20px;"><%= username %></h6>
+                                <% if (bio) { %>
+                                    <p style="text-align: center; font-size: 2ch; margin-top: 20px; margin-bottom: 20px; width: 300px;"><%= bio %></p>
+                                <% } %>
+                            </div>
+                            <div class="media-body mb-4" >
+                                <center><h2><a>Welcome on Let's Party</a></h2></center>
+                                <center><h4 id="part2Value"></small>Hello <%= user %> </h4><br></center>
+                                <center><h4 id="part3Value"></small><%= su %> 🥳</h4><br></center>
+                            </div>
+                            <div class="my-5 text-center" >
+                                <img class="openbtn" style="width: 30px; height: 30px;" src = "../iconpng/icons_settings.png" onclick="moveNav()">
+                                <br />
+                                <h3 class="pt-2">SETTINGS</h3>
+                                <script>
+                                    
+                                    
+                                </script>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <br />
+                        <div class="border-bottom" id="createValue" style="margin: 0;">
+                            <script src="../javascript/creator.js"></script>
+                        </div>
+                        <script src="../javascript/list_post.js"></script>
+                        <div class="border-bottom">
+                            <div class="post-container" id="post-container" style="margin: auto 0 40px 0;">
+                                <!-- riempito da list_post.js -->
+                            </div>
+                        </div>
+                        <br />
+                        <div class="border-bottom">
+                            <!-- <h5 class="mb-3">Favourite locals</h5> -->
+                            <center><h2><a style="color:brown">Favourite locals 🥰</a></h2></center>
+                            <br>
+
+                            <script src="../javascript/list_fav.js"></script>
+
+                                <form method='GET' action="/profile/list/0" id="form-submit">
+                                    
+                                
+                                    <div id="grid-container">
+
+                                        <div class="grid-layout-cards" id="grid-layout-cards">
+                                            
+                                        </div>
+                                    </div>
+                                </form>
+                            
+                        </div>
+
+                        
+
+                        <div class="py-4 border-bottom">
+                            <center><h2><a style="color:brown">Reservation 📲</a></h2></center>
+                            <br />
+                            <script src="../javascript/book.js"></script>
+
+                                
+                                    <div id="grid-container">
+
+                                        <div class="grid-layout-cards" id="grid-layout-cards-book">
+                                            
+                                        </div>
+                                    </div>
+                                </form>
+                        </div>
+
+                        
+                        <div class="py-4 border-bottom">
+
+                            <center><h2><a style="color:brown">reviews🥰</a></h2></center>
+                            <form action="/users/profile/review" method="GET">
+                                <div id="container-recensioni"></div>
+
+
+                                <div style="float: right; margin-right: 2%;">
+                                    <input href="/users/profile/review" class="review-button" type="submit" value="write a review" onclick="">
+                                    <br>
+                                    <br>
+                                </div>
+                            </form>    
+
+                            <script src="../javascript/display_rev.js"></script>
+                            
+                            <!-- <form method='GET' action="/review/list/0" id="form-submit">   -->
+                                <div class="container-reviews-grid" id="container-reviews-grid">
+               
+                                </div>
+                            <!-- </form> -->
+                            <br>
+                        </div>
+
+                        
+
+                        <div id="invite-div" style="padding: 30px;">
+                            
+                            <center><h2 style="color: brown;">Invite your friends</h2></center>
+                            <br />
+                            <center><h3>Per noi di Let's Party la community è molto importante, condividi questa opportunità con i tuoi amici e colleghi!</h3></center>
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <button id="openPopup" onclick="friendsPopUp()">Invite</button>
+                            
+
+                            <div class="popup" id="popup-friends" style="display: none;">
+                                <div class="popup-content">
+                                    <form method="post" action="/send_email/friends">
+                                        <div class="fields">
+                                            <div class="field">
+                                                <label for="name">Your friend's name</label>
+                                                <input type="text" name="name" id="name" required/>
+                                            </div>
+                                            <div class="field">
+                                                <label for="email">Email</label>
+                                                <input type="text" name="email" id="email" required/>
+                                            </div>
+                                            <div class="field">
+                                            <label for="message">Message</label>
+                                            <textarea name="message" id="message" rows="3"></textarea>
+                                            </div>
+                                        </div>
+                                        <ul class="actions">
+                                            <li><input type="submit" value="Send Message" /></li>
+                                        </ul>
+                                    </form>
+                                </div>
+                            </div>
+                            <script>
+                                const popup = document.getElementById('popup-friends');
+                                const button = document.getElementById("openPopup");
+                                popup.addEventListener('click', (event) => {
+                                    if (event.target === popup) {
+                                    popup.style.display = 'none';
+                                    button.classList.remove('hidden');
+                                    }
+                                });
+                            </script>
+
+                        </div>                        
+
+                    </div>
+                </div>
+            </footer>
+        <!-- </div> -->
+        <div id="copyright">
+                    <ul>
+                      <li>&copy; Copyright 2023 </li>
+                      <li>Design: <a href="https://www.instagram.com/francescotinessa_/" target="_blank"> Francesco Tinessa </a></li>
+                    </ul>
+                </div>
+        </div>
+        <!-- Scripts -->
+			<script src="../javascript/jquery.min.js"></script>
+			<script src="../javascript/jquery.scrollex.min.js"></script>
+			<script src="../javascript/jquery.scrolly.min.js"></script>
+			<script src="../javascript/browser.min.js"></script>
+			<script src="../javascript/breakpoints.min.js"></script>
+			<script src="../javascript/util.js"></script>
+			<script src="../javascript/main.js"></script>
+    </body>
+</html>
